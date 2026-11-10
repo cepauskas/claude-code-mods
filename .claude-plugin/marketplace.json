@@ -1,0 +1,16 @@
+{
+  "name": "claude-code-mods",
+  "owner": { "name": "Saulius" },
+  "plugins": [
+    {
+      "name": "source-control",
+      "source": "./source-control",
+      "description": "Source Control pane: stage, commit, push, switch branches beside the chat; diff inside the pane on the terminal"
+    },
+    {
+      "name": "tmux-sessions",
+      "source": "./tmux-sessions",
+      "description": "One row above the prompt listing the Claude sessions running in tmux, with their status; a click focuses the session's tmux pane"
+    }
+  ]
+}

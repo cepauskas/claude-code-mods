@@ -1,0 +1,10 @@
+{
+  "name": "tmux-sessions",
+  "version": "0.2.0",
+  "description": "One row above the prompt listing the Claude sessions running in tmux, with their status; a click focuses the session's tmux pane",
+  "types": "./types/index.d.ts",
+  "license": "MIT",
+  "author": {
+    "name": "Saulius"
+  }
+}
