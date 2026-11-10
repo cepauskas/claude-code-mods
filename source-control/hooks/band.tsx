@@ -1,7 +1,4 @@
-import { atom, read, update } from 'claude-code'
 import type { EngineInterface, RenderElement, RenderInput } from 'claude-code'
-
-const isPaneShownAtom = atom({ plugin: 'source-control', key: 'isPaneShown' } as const, false, { shape: 'source-control-1' })
 
 /**
  * The band above the prompt is one tree that every mod's hook wraps in turn.
@@ -26,22 +23,13 @@ function isElement(value: unknown): value is RenderElement {
   return typeof value === 'object' && value !== null && 'type' in value
 }
 
-type Dollar = Pick<EngineInterface, 'state'>
-
-export async function setPaneShown($: Dollar, isShown: boolean): Promise<void> {
-  const current = await read($, isPaneShownAtom)
-  if (current !== isShown) {
-    await update($, isPaneShownAtom, () => isShown)
-  }
-}
-
 export async function renderBand(
   $: EngineInterface,
   e: RenderInput<'AbovePrompt'>,
   onOpen: () => void,
   next: (e: RenderInput<'AbovePrompt'>) => Promise<RenderElement>,
 ): Promise<RenderElement> {
-  if (e.props.hasSurvey || (await read($, isPaneShownAtom))) {
+  if (e.props.hasSurvey) {
     return next(e)
   }
   const { Box, Button, Text } = $.ui.resolve(e)

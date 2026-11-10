@@ -162,7 +162,7 @@ const BAND = {
   },
 } as const
 
-test('the band offers a Source Control button only while the pane is not shown', async ($, on) => {
+test('the band offers a Source Control button while the pane is not shown', async ($, on) => {
   const git = boot(on, { [STATUS]: { stdout: CLEAN } }, false)
   on('ui.render', ($, e) => {
     const { Text } = $.ui.resolve(e)
@@ -180,7 +180,7 @@ test('the band offers a Source Control button only while the pane is not shown',
   await hidden.unmount()
 })
 
-test('the band stays out of the way while the pane is placed', async ($, on) => {
+test('the band keeps the Source Control button while the pane is placed', async ($, on) => {
   boot(on, { [STATUS]: { stdout: CLEAN } })
   on('ui.render', ($, e) => {
     const { Text } = $.ui.resolve(e)
@@ -189,7 +189,7 @@ test('the band stays out of the way while the pane is placed', async ($, on) => 
   })
   await $.session.start({ cwd: '/', surface: 'desktop', isInteractive: true })
   const shown = await $.ui.mount({ ...BAND, surface: 'desktop' })
-  expect(await shown.find({ type: 'Button', key: 'open-source-control' })).toBe(undefined)
+  expect((await shown.find({ type: 'Button', key: 'open-source-control' }))?.text).toBe('⎇')
   expect((await shown.find({ type: 'Text', text: /engine/ }))?.text).toBe('engine')
   await shown.unmount()
 })

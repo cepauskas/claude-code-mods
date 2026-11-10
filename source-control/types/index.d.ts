@@ -45,7 +45,6 @@ declare module 'claude-code' {
       branches: Shaped<string[]>
       draft: Shaped<string>
       ui: Shaped<UiState>
-      isPaneShown: Shaped<boolean>
       diff: Shaped<DiffView>
     }
   }

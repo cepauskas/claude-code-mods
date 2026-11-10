@@ -1,7 +1,7 @@
 import type { EngineInterface, Register } from 'claude-code'
 
 import { refresh, setMessageFocused, startTimer, stopTimer, takeDeferredRefresh } from './actions'
-import { renderBand, setPaneShown } from './band'
+import { renderBand } from './band'
 import { renderPane } from './pane'
 import { PANE, PANE_TITLE } from './state'
 
@@ -14,7 +14,6 @@ async function openPane($: EngineInterface): Promise<void> {
   } else {
     stopTimer()
   }
-  await setPaneShown($, opened.isPlaced)
 }
 
 export const register: Register = on => {
@@ -39,7 +38,6 @@ export const register: Register = on => {
 
   on('ui.close', { id: 'source-control' }, async ($, e, next) => {
     stopTimer()
-    await setPaneShown($, false)
 
     return next(e)
   })
