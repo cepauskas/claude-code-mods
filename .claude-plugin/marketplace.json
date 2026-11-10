@@ -1,6 +1,9 @@
 {
   "name": "claude-code-mods",
-  "owner": { "name": "Saulius" },
+  "owner": {
+    "name": "Saulius",
+    "url": "https://github.com/cepauskas"
+  },
   "plugins": [
     {
       "name": "source-control",

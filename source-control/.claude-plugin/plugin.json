@@ -2,5 +2,10 @@
   "name": "source-control",
   "version": "0.6.0",
   "description": "Source Control pane: stage, commit, push, switch branches beside the chat",
-  "types": "./types/index.d.ts"
+  "types": "./types/index.d.ts",
+  "license": "MIT",
+  "author": {
+    "name": "Saulius",
+    "url": "https://github.com/cepauskas"
+  }
 }
