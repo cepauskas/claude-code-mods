@@ -11,7 +11,7 @@ const CHANGED = `# branch.head main\u00001 .M N... ${H} src/a.ts\u0000`
 function boot(on: On, answers: Record<string, Answer | Answer[]>, isPlaced = true) {
   const calls: string[] = []
   const registered: string[] = []
-  const opened: Array<{ id: string; title?: string }> = []
+  const opened: Array<{ id: string; title?: string; backgroundColor?: unknown }> = []
   const state: Record<string, unknown> = {}
   const writes: Record<string, number> = {}
   const clock = mock.clock(on)
@@ -42,7 +42,7 @@ function boot(on: On, answers: Record<string, Answer | Answer[]>, isPlaced = tru
     return { value: { command: e.name } }
   })
   on('ui.open', (_, e) => {
-    opened.push({ id: e.id, title: e.title })
+    opened.push({ id: e.id, title: e.title, backgroundColor: e.backgroundColor })
 
     return { value: isPlaced ? { isPlaced: true } : { isPlaced: false, reason: 'narrow' } }
   })
@@ -69,7 +69,7 @@ test('session start registers the command, refreshes and opens the pane', async 
   const git = boot(on, { [STATUS]: { stdout: CLEAN } })
   await $.session.start({ cwd: '/', surface: 'desktop', isInteractive: true })
   expect(git.registered).toEqual(['source-control'])
-  expect(git.opened).toEqual([{ id: 'source-control', title: 'Source Control' }])
+  expect(git.opened).toEqual([{ id: 'source-control', title: 'Source Control', backgroundColor: 'transparent' }])
   expect(git.statusCalls()).toBe(1)
 })
 

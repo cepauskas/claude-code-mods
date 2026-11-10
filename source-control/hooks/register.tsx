@@ -8,7 +8,7 @@ import { PANE, PANE_TITLE } from './state'
 const EDITING_TOOLS = new Set(['Edit', 'Write', 'NotebookEdit', 'Bash'])
 
 async function openPane($: EngineInterface): Promise<void> {
-  const opened = await $.ui.open({ id: PANE, title: PANE_TITLE })
+  const opened = await $.ui.open({ id: PANE, title: PANE_TITLE, backgroundColor: 'transparent' })
   if (opened.isPlaced) {
     startTimer($)
   } else {
