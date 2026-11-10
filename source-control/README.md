@@ -6,4 +6,4 @@ A Claude Code desktop mod that adds a VS Code-like Source Control pane beside th
 
 See the README one folder up.
 
-Reopen the pane any time with `/source-control` or the `⎇` button above the prompt.
+Reopen the pane any time with `/source-control` or the `⎇ Git` button above the prompt.

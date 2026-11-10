@@ -45,8 +45,8 @@ export async function renderBand(
           {rest}
         </Box>
         <Box key="source-control-band-button" flexShrink={0}>
-          <Button key="open-source-control" label="Source Control" plain dimColor hover={{ dimColor: false }} onPress={onOpen}>
-            ⎇
+          <Button key="open-source-control" label="Source Control" plain onPress={onOpen}>
+            ⎇ Git
           </Button>
         </Box>
       </Box>

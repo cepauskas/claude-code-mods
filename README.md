@@ -31,7 +31,7 @@ Remove: `claude plugin uninstall source-control@claude-code-mods`, `claude plugi
 
 ## source-control
 
-- Open the pane with `/source-control` or the `⎇` button above the prompt.
+- Open the pane with `/source-control` or the `⎇ Git` button above the prompt.
 - Desktop app: a click on a file opens the app's diff pane.
 - Terminal: a click on a file draws the diff inside the pane. Hidden lines around each change expand 100 at a time. `← Back` returns to the file list.
 - The open-file icon (`↗`) on the terminal runs `nano` in a tmux split when Claude Code runs inside tmux; the split closes on save or exit. Outside tmux it runs `code -g` (the VS Code command line tool).
